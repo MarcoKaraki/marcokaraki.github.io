@@ -42,19 +42,22 @@
     viewer.clock.clockRange = Cesium.ClockRange.LOOP_STOP; //Loop at the end
     viewer.clock.multiplier = 10;
 
+    var examplePathCoords = [
+      Cesium.Cartesian3.fromDegrees(20.995, 40.010, 1100),
+      Cesium.Cartesian3.fromDegrees(21.002, 40.020, 1200),
+      Cesium.Cartesian3.fromDegrees(21.015, 40.030, 1000),
+    ];
 
     //Generate a random circular pattern with varying heights.
-    function computeCirclularFlight(lon, lat, radius) {
+    function createPath(coords) {
         var property = new Cesium.SampledPositionProperty();
-        for (var i = 0; i <= 360; i += 45) {
-            var radians = Cesium.Math.toRadians(i);
-            var time = Cesium.JulianDate.addSeconds(start, i, new Cesium.JulianDate());
-            var position = Cesium.Cartesian3.fromDegrees(lon + (radius * 1.5 * Math.cos(radians)), lat + (radius * Math.sin(radians)), Cesium.Math.nextRandomNumber() * 500 + 1750);
-            property.addSample(time, position);
+        for (var i = 0; i <= coords.length; i++) {
+            var time = Cesium.JulianDate.addSeconds(start, i*30, new Cesium.JulianDate());
+            property.addSample(time, coords[i]);
 
             //Also create a point for each sample we generate.
             viewer.entities.add({
-                position : position,
+                position : coords[i],
                 point : {
                     pixelSize : 8,
                     color : Cesium.Color.TRANSPARENT,
