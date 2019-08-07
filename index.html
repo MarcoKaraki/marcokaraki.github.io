@@ -51,7 +51,7 @@
     //Generate a random circular pattern with varying heights.
     function createPath(coords) {
         var property = new Cesium.SampledPositionProperty();
-        for (var i = 0; i <= coords.length; i++) {
+        for (var i = 0; i < coords.length; i++) {
             var time = Cesium.JulianDate.addSeconds(start, i*30, new Cesium.JulianDate());
             property.addSample(time, coords[i]);
 
