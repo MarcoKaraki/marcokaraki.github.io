@@ -32,13 +32,13 @@
       Cesium.Cartesian3.fromDegrees(20.995, 40.010, 1100),
       Cesium.Cartesian3.fromDegrees(21.002, 40.020, 1200),
       Cesium.Cartesian3.fromDegrees(21.015, 40.030, 1000),
-      Cesium.Cartesian3.fromDegrees(21.03, 40.040, 1200),
-      Cesium.Cartesian3.fromDegrees(21.025, 40.050, 1300)
+      Cesium.Cartesian3.fromDegrees(21.03, 40.040, 1300),
+      Cesium.Cartesian3.fromDegrees(21.025, 40.050, 1400)
     ];
 
     //Set bounds of our simulation time
     var start = Cesium.JulianDate.fromDate(new Date());
-    var stop = Cesium.JulianDate.addSeconds(start, examplePathCoords.length*30, new Cesium.JulianDate());
+    var stop = Cesium.JulianDate.addSeconds(start, (examplePathCoords.length-1)*30, new Cesium.JulianDate());
     
     //Set timeline to simulation bounds if the timeline is enabled
     viewer.timeline.zoomTo(start, stop);
