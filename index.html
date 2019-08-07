@@ -40,12 +40,14 @@
     viewer.clock.stopTime = stop.clone();
     viewer.clock.currentTime = start.clone();
     viewer.clock.clockRange = Cesium.ClockRange.LOOP_STOP; //Loop at the end
-    viewer.clock.multiplier = 10;
+    viewer.clock.multiplier = 5;
 
     var examplePathCoords = [
       Cesium.Cartesian3.fromDegrees(20.995, 40.010, 1100),
       Cesium.Cartesian3.fromDegrees(21.002, 40.020, 1200),
       Cesium.Cartesian3.fromDegrees(21.015, 40.030, 1000),
+      Cesium.Cartesian3.fromDegrees(21.03, 40.040, 1100),
+      Cesium.Cartesian3.fromDegrees(21.025, 40.050, 1000)
     ];
 
     //Generate a random circular pattern with varying heights.
